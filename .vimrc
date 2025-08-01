@@ -39,7 +39,7 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
 
 call plug#end()
 
-colorscheme everforest
+colorscheme catppuccin_mocha
 set number
 set relativenumber
 syntax on
@@ -51,6 +51,7 @@ set ignorecase
 set smartcase
 filetype plugin indent on
 set cursorline
+set clipboard=unnamedplus
 set showmatch
 set laststatus=2
 set backspace=indent,eol,start
@@ -105,6 +106,18 @@ nnoremap <leader>w :w<cr>
 inoremap <C-h> <C-w>
 inoremap jj <Esc>
 inoremap jk <Esc>
+function! s:ChooseTheme()
+  let themes = ['everforest', 'gruvbox', 'onedark', 'catppuccin_mocha']
+  call fzf#run(fzf#wrap({
+        \ 'source': themes,
+        \ 'sink': function('s:ApplyTheme'),
+        \ 'prompt': 'Theme> ',
+        \ 'window': { 'width': 0.5, 'height': 0.3 } }))
+endfunction
+function! s:ApplyTheme(theme)
+  execute 'colorscheme' a:theme
+endfunction
+nnoremap <leader>tt :call <SID>ChooseTheme()<CR>
 augroup AirlineColors
     autocmd!
     autocmd ColorScheme gruvbox let g:airline_theme = 'gruvbox'
