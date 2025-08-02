@@ -1,8 +1,13 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * ++once PlugInstall --sync | source $MYVIMRC
+if empty(glob(expand('~/.vim/autoload/plug.vim')))
+  silent execute '!curl -fLo ' . expand('~/.vim/autoload/plug.vim') . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * ++once call s:PlugInstall()
 endif
+
+function! s:PlugInstall()
+  call plug#begin('~/.vim/plugged')
+  call plug#end()
+  PlugInstall | q
+endfunction
 
 call plug#begin('~/.vim/plugged')
 
@@ -23,8 +28,8 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'sainnhe/everforest'
 Plug 'flazz/vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
-" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 
@@ -71,7 +76,6 @@ set listchars=tab:▸\ ,trail:·
 set autoindent
 set smartindent
 set breakindent
-set completeopt=menuone,noselect
 set termguicolors
 set background=dark
 set updatetime=50
@@ -109,8 +113,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-nnoremap n nzzzv
-nnoremap N Nzzzv
 nnoremap <leader>gj :GitGutterNextHunk<CR>
 nnoremap <leader>gg :!lazygit<CR>
 nnoremap <leader>gk :GitGutterPrevHunk<CR>
@@ -122,7 +124,6 @@ nnoremap N Nzzzv
 inoremap <C-h> <C-w>
 inoremap <C-BS> <C-w>
 nnoremap <leader>w :w<cr>
-inoremap <C-h> <C-w>
 inoremap jj <Esc>
 inoremap jk <Esc>
 
