@@ -23,6 +23,7 @@ set showmatch
 set laststatus=2
 set noshowmode
 set title
+set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
 
 " --- encoding / syntax ---
 set encoding=utf-8
@@ -66,8 +67,6 @@ set completeopt=menuone,noselect
 
 " --- netrw ---
 let g:netrw_banner=0
-let g:netrw_altv=1
-let g:netrw_winsize=25
 
 " --- restore cursor ---
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
