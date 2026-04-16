@@ -18,12 +18,14 @@ set number
 set relativenumber
 set numberwidth=4
 set signcolumn=yes
+set colorcolumn=80
 set cursorline
 set showmatch
 set laststatus=2
 set noshowmode
 set title
 set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
+set belloff=all
 
 " --- encoding / syntax ---
 set encoding=utf-8
@@ -83,6 +85,7 @@ nnoremap <C-p> :Files<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>fg :Rg<CR>
 nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>h :Helptags<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>ef :Vexplore<CR>
 
