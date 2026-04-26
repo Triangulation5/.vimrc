@@ -78,7 +78,7 @@ let mapleader=" "
 let maplocalleader="\\"
 
 " --- fzf ---
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden --follow --glob '!.git/*'"
+let $FZF_DEFAULT_COMMAND = "rg --files"
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
 nnoremap <C-p> :Files<CR>
