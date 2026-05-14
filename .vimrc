@@ -7,13 +7,12 @@ if empty(glob(expand('~/.vim/autoload/plug.vim')))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " --- UI / behavior ---
-colorscheme retrobox
+colorscheme habamax
 set number
 set relativenumber
 set numberwidth=4
@@ -26,6 +25,12 @@ set noshowmode
 set title
 set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
 set belloff=all
+set completeopt=menuone,longest,popup
+set complete=.,w,b,u,t,i,k
+set pumheight=10
+set shortmess+=c
+set omnifunc=syntaxcomplete#Complete
+set path=**
 
 " --- encoding / syntax ---
 set encoding=utf-8
@@ -60,7 +65,7 @@ set timeoutlen=150
 set backspace=indent,eol,start
 set list
 set listchars=tab:\ \ ,trail:·
-set background=dark
+" set background=dark
 set termguicolors
 set noswapfile
 set whichwrap+=<,>,[,],h,l
@@ -68,7 +73,7 @@ set iskeyword+=-
 set completeopt=menuone,noselect
 
 " --- netrw ---
-let g:netrw_banner=0
+let g:netrw_banner=1
 
 " --- restore cursor ---
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -78,21 +83,17 @@ let mapleader=" "
 let maplocalleader="\\"
 
 " --- fzf ---
-let $FZF_DEFAULT_COMMAND = "rg --files"
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+" let $FZF_DEFAULT_COMMAND = "rg --files"
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+" o
 
-nnoremap <C-p> :Files<CR>
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>fg :Rg<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>h :Helptags<CR>
-nnoremap <leader>e :Explore<CR>
-nnoremap <leader>ef :Vexplore<CR>
-
-" --- lsp (coc) ---
-nnoremap gd <Plug>(coc-definition)
-nnoremap gr <Plug>(coc-references)
-nnoremap gi <Plug>(coc-implementation)
+nnoremap <leader>f :find<Space>
+nnoremap <leader>fg :vimgrep<Space>
+nnoremap <leader>fb :buffers<CR>
+nnoremap <leader>h :h<Space>
+nnoremap <leader>n :norm<Space>
+vnoremap <leader>n :norm<Space>
+nnoremap <leader>pv :Explore<CR>
 
 " --- basic mappings ---
 nnoremap <leader>w :%s/\s\+$//e<CR>:w<CR>
@@ -109,9 +110,7 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-inoremap <C-h> <C-w>
 inoremap <C-BS> <C-w>
-inoremap jk <Esc>
 
 nnoremap d "_d
 vnoremap d "_d
