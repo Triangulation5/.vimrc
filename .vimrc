@@ -1,16 +1,5 @@
 set nocompatible
 
-" --- plugin bootstrap ---
-if empty(glob(expand('~/.vim/autoload/plug.vim')))
-  silent execute '!curl -fLo ' . expand('~/.vim/autoload/plug.vim') . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * ++once PlugInstall | q
-endif
-
-call plug#begin('~/.vim/plugged')
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-call plug#end()
-
 " --- UI / behavior ---
 colorscheme habamax
 set number
@@ -73,7 +62,10 @@ set iskeyword+=-
 set completeopt=menuone,noselect
 
 " --- netrw ---
-let g:netrw_banner=1
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
 
 " --- restore cursor ---
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -82,35 +74,29 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 let mapleader=" "
 let maplocalleader="\\"
 
-" --- fzf ---
-" let $FZF_DEFAULT_COMMAND = "rg --files"
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
-" o
-
 nnoremap <leader>f :find<Space>
 nnoremap <leader>fg :vimgrep<Space>
 nnoremap <leader>fb :buffers<CR>
 nnoremap <leader>h :h<Space>
-nnoremap <leader>n :norm<Space>
-vnoremap <leader>n :norm<Space>
 nnoremap <leader>pv :Explore<CR>
+nnoremap <leader>e :25Vex<CR>
 
 " --- basic mappings ---
 nnoremap <leader>w :%s/\s\+$//e<CR>:w<CR>
 nnoremap <leader>q :quit<CR>
+nnoremap <leader>wq :xa<CR>
 
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bdelete<CR>
 nnoremap <leader>bf :bw!<CR>
+nnoremap <leader>te :tabe<Space>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
-inoremap <C-BS> <C-w>
 
 nnoremap d "_d
 vnoremap d "_d
