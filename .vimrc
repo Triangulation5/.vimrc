@@ -1,7 +1,7 @@
 set nocompatible
 
 " --- UI / behavior ---
-colorscheme habamax
+colorscheme vague
 set number
 set relativenumber
 set numberwidth=4
@@ -20,6 +20,7 @@ set pumheight=10
 set shortmess+=c
 set omnifunc=syntaxcomplete#Complete
 set path=**
+set showtabline=2
 
 " --- encoding / syntax ---
 set encoding=utf-8
@@ -54,7 +55,7 @@ set timeoutlen=150
 set backspace=indent,eol,start
 set list
 set listchars=tab:\ \ ,trail:·
-" set background=dark
+set background=dark
 set termguicolors
 set noswapfile
 set whichwrap+=<,>,[,],h,l
@@ -88,7 +89,6 @@ nnoremap <leader>wq :xa<CR>
 
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bd :bdelete<CR>
 nnoremap <leader>bf :bw!<CR>
 nnoremap <leader>te :tabe<Space>
 
@@ -97,9 +97,3 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
-nnoremap d "_d
-vnoremap d "_d
-nnoremap c "_c
-vnoremap c "_c
-nnoremap x "_x
