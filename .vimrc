@@ -6,18 +6,17 @@ set number
 set relativenumber
 set numberwidth=4
 set signcolumn=yes
-set colorcolumn=80
-set cursorline
+" set colorcolumn=80
 set showmatch
+set showmode
+set more
 set laststatus=2
-set noshowmode
 set title
 set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
 set belloff=all
 set completeopt=menuone,longest,popup
 set complete=.,w,b,u,t,i,k
 set pumheight=10
-set shortmess+=c
 set omnifunc=syntaxcomplete#Complete
 set path=**
 set showtabline=2
@@ -77,23 +76,28 @@ let maplocalleader="\\"
 
 nnoremap <leader>f :find<Space>
 nnoremap <leader>fg :vimgrep<Space>
-nnoremap <leader>fb :buffers<CR>
+nnoremap <leader>fb :buffers<CR>:buffer<Space>
 nnoremap <leader>h :h<Space>
 nnoremap <leader>pv :Explore<CR>
 nnoremap <leader>e :25Vex<CR>
+" :25Vex for right side
+" :25Lex for left side
 
 " --- basic mappings ---
-nnoremap <leader>w :%s/\s\+$//e<CR>:w<CR>
+nnoremap <leader>w :%s/\s\+$//e<CR>:write<CR>
 nnoremap <leader>q :quit<CR>
 nnoremap <leader>wq :xa<CR>
+nnoremap <leader>n :norm<Space>
+vnoremap <leader>n :norm<Space>
+xnoremap <leader>n :norm<Space>
 
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bf :bw!<CR>
 nnoremap <leader>te :tabe<Space>
 
-vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
