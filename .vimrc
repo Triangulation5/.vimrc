@@ -1,30 +1,20 @@
-set nocompatible
-
 " --- UI / behavior ---
-colorscheme vague
 set number
 set relativenumber
 set numberwidth=4
 set signcolumn=yes
-" set colorcolumn=80
-set showmatch
-set showmode
+set title
 set more
 set laststatus=2
-set title
 set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
 set belloff=all
-set completeopt=menuone,longest,popup
-set complete=.,w,b,u,t,i,k
 set pumheight=10
 set omnifunc=syntaxcomplete#Complete
-set path=**
+set path=.,**
 set showtabline=2
 
 " --- encoding / syntax ---
 set encoding=utf-8
-syntax on
-filetype plugin indent on
 
 " --- tabs / indent ---
 set tabstop=4
@@ -59,13 +49,11 @@ set termguicolors
 set noswapfile
 set whichwrap+=<,>,[,],h,l
 set iskeyword+=-
-set completeopt=menuone,noselect
+set completeopt=menuone,longest,popup
+set complete=.,w,b,u,t,i,k
 
 " --- netrw ---
 let g:netrw_banner=0
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_liststyle=3
 
 " --- restore cursor ---
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -78,10 +66,7 @@ nnoremap <leader>f :find<Space>
 nnoremap <leader>fg :vimgrep<Space>
 nnoremap <leader>fb :buffers<CR>:buffer<Space>
 nnoremap <leader>h :h<Space>
-nnoremap <leader>pv :Explore<CR>
-nnoremap <leader>e :25Vex<CR>
-" :25Vex for right side
-" :25Lex for left side
+nnoremap <leader>e :Explore<CR>
 
 " --- basic mappings ---
 nnoremap <leader>w :%s/\s\+$//e<CR>:write<CR>
@@ -90,14 +75,13 @@ nnoremap <leader>wq :xa<CR>
 nnoremap <leader>n :norm<Space>
 vnoremap <leader>n :norm<Space>
 xnoremap <leader>n :norm<Space>
-
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bf :bw!<CR>
-nnoremap <leader>te :tabe<Space>
 
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
-
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+colorscheme retrobox
