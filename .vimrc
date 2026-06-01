@@ -1,5 +1,11 @@
+" --- encoding / core ---
+set encoding=utf-8
+set background=dark
+set termguicolors
+set noswapfile
+set viminfo='50,<20,s5,h
+
 " --- UI / behavior ---
-set number
 set relativenumber
 set numberwidth=4
 set signcolumn=yes
@@ -12,9 +18,6 @@ set pumheight=10
 set omnifunc=syntaxcomplete#Complete
 set path=.,**
 set showtabline=2
-
-" --- encoding / syntax ---
-set encoding=utf-8
 
 " --- tabs / indent ---
 set tabstop=4
@@ -29,7 +32,6 @@ set breakindent
 set ignorecase
 set smartcase
 set incsearch
-set hlsearch
 set nohlsearch
 
 " --- scrolling ---
@@ -37,33 +39,34 @@ set scrolloff=8
 set sidescrolloff=8
 
 " --- timing ---
-set updatetime=50
+set updatetime=200
 set timeoutlen=150
 
 " --- misc ---
-set backspace=indent,eol,start
 set list
 set listchars=tab:\ \ ,trail:·
-set background=dark
-set termguicolors
-set noswapfile
 set whichwrap+=<,>,[,],h,l
 set iskeyword+=-
 set completeopt=menuone,longest,popup
-set complete=.,w,b,u,t,i,k
+set complete=.,w,b,u,t
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+set grepformat=%f:%l:%c:%m
+set wildmenu
+set wildmode=longest:full,full
 
 " --- netrw ---
 let g:netrw_banner=0
 
 " --- restore cursor ---
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup restore_cursor | autocmd! | autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | normal! g`" | endif | augroup END
 
 " --- leader ---
 let mapleader=" "
 let maplocalleader="\\"
 
 nnoremap <leader>f :find<Space>
-nnoremap <leader>fg :vimgrep<Space>
+nnoremap <leader>fg :grep<Space>
+nnoremap <leader>fw :grep <C-R><C-W><CR>:copen<CR>
 nnoremap <leader>fb :buffers<CR>:buffer<Space>
 nnoremap <leader>h :h<Space>
 nnoremap <leader>e :Explore<CR>
@@ -84,4 +87,4 @@ vnoremap J :m '>+1<CR>gv=gv
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-colorscheme retrobox
+colorscheme gruber-darker
