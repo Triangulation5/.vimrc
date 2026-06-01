@@ -6,6 +6,7 @@ set noswapfile
 set viminfo='50,<20,s5,h
 
 " --- UI / behavior ---
+set number
 set relativenumber
 set numberwidth=4
 set signcolumn=yes
