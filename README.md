@@ -11,10 +11,6 @@
 
 ---
 
-<a href="https://commons.wikimedia.org/wiki/File:OrbView-2_Satellite.jpg">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" align="right" />
-</a>
-
 > It begins with a simple desire: a text editor that starts instantly, works everywhere, and survives a fresh install. This is the result.
 
 A single-file `.vimrc` built around native Vim functionality, sensible defaults, and long-term portability.
@@ -37,6 +33,10 @@ A single-file `.vimrc` built around native Vim functionality, sensible defaults,
 * Built-in file browsing with netrw
 * Simple leader-key workflow
 * True-color terminal support
+  
+<a href="https://commons.wikimedia.org/wiki/File:OrbView-2_Satellite.jpg">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" align="right" />
+</a>
 
 ## Installation
 
