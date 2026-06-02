@@ -9,9 +9,7 @@
   - [License](#license)
 <!--toc:end-->
 
-<a href="http://ultravioletbat.deviantart.com/art/Yay-Evil-111710573">
-  <img src="https://commons.wikimedia.org/wiki/File:OrbView-2_Satellite.jpg" align="right" />
-</a>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" align="right" />
 
 > It begins with a simple desire: a text editor that starts instantly, works everywhere, and survives a fresh install. This is the result.
 
