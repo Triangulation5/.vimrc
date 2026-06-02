@@ -11,11 +11,11 @@
 
 ---
 
-<div style="float: right; margin: 0 0 1em 1em;">
+<p align="right">
   <a href="https://commons.wikimedia.org/wiki/File:OrbView-2_Satellite.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" width="250" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" width="250">
   </a>
-</div>
+</p>
 
 > It begins with a simple desire: a text editor that starts instantly, works everywhere, and survives a fresh install. This is the result.
 
