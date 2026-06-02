@@ -59,7 +59,7 @@ set wildmode=longest:full,full
 let g:netrw_banner=0
 
 " --- restore cursor ---
-augroup restore_cursor | autocmd! | autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | normal! g`" | endif | augroup END
+augroup restore_cursor | autocmd! | autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif | augroup END
 
 " --- leader ---
 let mapleader=" "
