@@ -11,15 +11,24 @@
 
 ---
 
-<p align="right">
-  <a href="https://commons.wikimedia.org/wiki/File:OrbView-2_Satellite.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" width="250">
-  </a>
-</p>
+<table>
+<tr>
+<td>
 
 > It begins with a simple desire: a text editor that starts instantly, works everywhere, and survives a fresh install. This is the result.
 
 A single-file `.vimrc` built around native Vim functionality, sensible defaults, and long-term portability.
+
+</td>
+<td width="260">
+
+<a href="https://commons.wikimedia.org/wiki/File:OrbView-2_Satellite.jpg">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/OrbView-2_Satellite.jpg" width="250">
+</a>
+
+</td>
+</tr>
+</table>
 
 ## Philosophy
 
