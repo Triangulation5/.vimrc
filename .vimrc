@@ -68,7 +68,9 @@ let maplocalleader="\\"
 nnoremap <leader>f :find<Space>
 nnoremap <leader>fg :grep<Space>
 nnoremap <leader>fw :grep <C-R><C-W><CR>:copen<CR>
-nnoremap <leader>fb :buffers<CR>:buffer<Space>
+command! -nargs=1 Ngrep vimgrep <args> **
+nnoremap <leader>[ :Ngrep<Space>
+nnoremap <leader>fb :ls<CR>:buffer<Space>
 nnoremap <leader>h :h<Space>
 nnoremap <leader>e :Explore<CR>
 
@@ -82,6 +84,9 @@ xnoremap <leader>n :norm<Space>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bf :bw!<CR>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
 
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
