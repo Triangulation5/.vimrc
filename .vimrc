@@ -3,7 +3,7 @@ set encoding=utf-8
 set background=dark
 set termguicolors
 set noswapfile
-set viminfo='50,<20,s5,h
+set viminfo= "Temporary disabled .viminfo file ( '50,<20,s5,h )
 
 " --- UI / behavior ---
 set number
@@ -12,13 +12,13 @@ set numberwidth=4
 set signcolumn=yes
 set title
 set more
-set laststatus=2
-set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
+"set laststatus=2
+"set statusline=%f%m%r\ [%{&filetype}]\ %=%l:%c\ %p%%
 set belloff=all
 set pumheight=10
 set omnifunc=syntaxcomplete#Complete
 set path=.,**
-set showtabline=2
+"set showtabline=2
 
 " --- tabs / indent ---
 set tabstop=4
@@ -54,12 +54,10 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
 set grepformat=%f:%l:%c:%m
 set wildmenu
 set wildmode=longest:full,full
+set clipboard=unnamed
 
 " --- netrw ---
 let g:netrw_banner=0
-
-" --- restore cursor ---
-augroup restore_cursor | autocmd! | autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif | augroup END
 
 " --- leader ---
 let mapleader=" "
@@ -81,8 +79,9 @@ nnoremap <leader>wq :xa<CR>
 nnoremap <leader>n :norm<Space>
 vnoremap <leader>n :norm<Space>
 xnoremap <leader>n :norm<Space>
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
+nnoremap <leader>lf :let v=winsaveview()<Bar>keepjumps %s/\s\+$//e<Bar>keepjumps %s/\n\+\%$//e<Bar>call winrestview(v)<CR>
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
 nnoremap <leader>bf :bw!<CR>
 inoremap ( ()<Left>
 inoremap [ []<Left>
@@ -90,7 +89,10 @@ inoremap { {}<Left>
 
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
-nnoremap n nzzzv
-nnoremap N Nzzzv
+xnoremap <silent> <leader>y :w !wl-copy<CR><CR>
+nnoremap <silent> <leader>p :read !wl-paste --no-newline<CR>
+xnoremap <silent> <leader>p c<C-r>=system('wl-paste --no-newline')<CR><Esc>
 
-colorscheme gruber-darker
+colorscheme gruvbox
+highlight Normal guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
